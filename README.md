@@ -53,7 +53,7 @@ You can now install packages by running `middleman jspm install <packagename>` a
 ```json
 [
 	{
-		"name": "main", // Maps to "/<javascript dir>/main.js",
+		"name": "main",
 		"include": [
 			"jquery"
 		],
@@ -95,3 +95,7 @@ This is a minimal working example, that includes the module in `main.js` and all
 ## Other Helpers
 
 Finally, there is also a helper called `jspm_path(<name>, [<source>])` that can give you the path of a file installed with JSPM. For instance, to look the path of jquery that was installed from github, you would use `jspm_path("components/jquery", "github")` to get the path of the jquery used by JSPM. The helper works the same way for NPM packages.
+	
+## Additional Help
+
+An example setup is posted at http://github.com/oncomouse/middleman-jspm-example
