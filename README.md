@@ -11,7 +11,7 @@ gem install middleman
 middleman init PROJECT
 ```
 
-Once that's done, add `gem "middleman-jspm"` to your `Gemfile` and run `bundle install`
+Once that's done, add `gem "middleman-jspm", :git => "https://github.com/oncomouse/middleman-jspm.git"` to your `Gemfile` and run `bundle install`
 
 ## Configuring
 
