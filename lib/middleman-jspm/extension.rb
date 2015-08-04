@@ -16,14 +16,15 @@ module Middleman
 	
 				if modules.length > 0
 					FileUtils.mkdir_p "#{jspm_dir.gsub('source','build').gsub('/jspm_packages','')}/"
+					if jspm_include_system()
+						assets = [
+							"jspm_packages/system",
+							"config"
+						]
 					
-					assets = [
-						"jspm_packages/system",
-						"config"
-					]
-					
-					File.open("#{jspm_dir.gsub('source','build').gsub('/jspm_packages','')}/system.js","w") do |fp|
-						fp.write assets.map{|x| sprockets.find_asset(x).to_s }.join("\n")
+						File.open("#{jspm_dir.gsub('source','build').gsub('/jspm_packages','')}/system.js","w") do |fp|
+							fp.write assets.map{|x| sprockets.find_asset(x).to_s }.join("\n")
+						end
 					end
 				end
 	
@@ -91,18 +92,22 @@ module Middleman
 				end
 			end
 	
+			def jspm_include_system()
+				include_system = false
+				modules = jspm_get_modules()
+		
+				modules.each do |mod|
+					if !mod["self-executing"]
+						include_system = true
+						break
+					end
+				end
+				return include_system
+			end
+	
 			def jspm_include_environment()
 				if build?
-					include_system = false
-					modules = jspm_get_modules()
-			
-					modules.each do |mod|
-						if !mod["self-executing"]
-							include_system = true
-							break
-						end
-					end
-					if include_system
+					if jspm_include_system()
 						javascript_include_tag("system")
 					end
 				else
