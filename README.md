@@ -88,7 +88,7 @@ This is a minimal working example, that includes the module in `main.js` and all
 		<%= jspm_include_environment %>
 	</head>
 	<body>
-		<div id="app"
+		<div id="app"></div>
 		<%= jspm_include_module("main") %>
 	</body>
 </html>
