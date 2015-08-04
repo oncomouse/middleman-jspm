@@ -25,6 +25,10 @@ The bundle defaults to `source/javascripts/jspm_packages` for installing package
 activate :jspm, :jspm_dir => "source/js/jspm_packages"
 ```
 
+### Optional
+
+As `middleman-jspm` manages your javascript for you, you should consider adding `ignore "javascripts/*"` to your `configure :build` section of `config.rb`. Doing so will prevent the site from building your javascript files unnecessarily.
+
 ## Setting Up Node
 
 This project relies on [Node.js](http://nodejs.org) to run JSPM. You will need to install it before you can use this gem.
@@ -32,7 +36,7 @@ This project relies on [Node.js](http://nodejs.org) to run JSPM. You will need t
 After you have installed node, run:
 
 ```
-npm install
+npm install jspm
 middleman jspm init
 ```
 
