@@ -15,6 +15,8 @@ Once that's done, add `gem "middleman-jspm", :git => "https://github.com/oncomou
 
 ## Configuring
 
+Add the following somehere in your `config.rb`:
+
 ```ruby
 activate :jspm
 ```
