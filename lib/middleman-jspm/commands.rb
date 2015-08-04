@@ -35,7 +35,9 @@ module Middleman
 					raise 'You need to activate the deploy extension in config.rb.'
 				end
 				
+				build_package_json = false
 				if not File.exists? "package.json"
+					build_package_json = true
 					File.open("package.json", "w") do |fp|
 						fp.write(JSON.pretty_generate(
 							{
@@ -60,6 +62,14 @@ module Middleman
 				end
 				
 				system "node node_modules/jspm/jspm.js #{options.join(" ")}"
+				
+				if build_package_json
+					config_js = File.read(jspm_dir.gsub(/\/jspm_packages$/,"")+"/config.js")
+					config_js.sub!(/^System.config\(\{/,"System.config({\n  \"baseURL\": \"#{jspm_dir.sub(/\/jspm_packages$/,"").sub(/^source/,"")}\",")
+					File.open(jspm_dir.gsub(/\/jspm_packages$/,"")+"/config.js", "w") do |fp|
+						fp.write config_js
+					end
+				end
 			end
 		end
 	end
