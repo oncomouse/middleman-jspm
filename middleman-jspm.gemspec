@@ -19,4 +19,6 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 1.9.3'
 
   spec.add_dependency 'middleman-core', '>= 3.2'
+  spec.add_dependency 'uglifier'
+  spec.add_dependency 'ejs'
 end
