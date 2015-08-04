@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['apilsch@tamu.edu']
   spec.summary       = "Use JSPM in Middleman"
   spec.description   = "Use JSPM in Middleman"
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/oncomouse/middleman-jspm'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
