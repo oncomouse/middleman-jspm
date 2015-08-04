@@ -69,6 +69,10 @@ You can now install packages by running `middleman jspm install <packagename>` a
 
 The above `modules.json` file will build a module named `main` that, in addition to dependencies defined in the file, will include jQuery but will not include React. The module will also compile as self-executing (which means JSPM will not add `system.js` and `config.js`) to the resulting file. 
 
+## Installing JSPM Packages
+
+You can use `middleman jspm` to run JSPM commands, install packages, and build bundles. For more information, see the [JSPM-CLI documentation](https://github.com/jspm/jspm-cli).
+
 ## Building JSPM Pages
 
 This is a minimal working example, that includes the module in `main.js` and all of it's dependencies:
@@ -93,7 +97,7 @@ This is a minimal working example, that includes the module in `main.js` and all
 `jspm_include_environment` includes the SystemJS and configuration files needed by JSPM and will include the correct files for both build and development environments. If all modules defined in `modules.json` are self-executing, this command returns nothing.
 
 `jspm_include_module(<name>)` includes a module into the present document and will include the correct files, in the correct manner, for both build and development environments.
-	
+
 ## Other Helpers
 
 Finally, there is also a helper called `jspm_path(<name>, [<source>])` that can give you the path of a file installed with JSPM. For instance, to look the path of jquery that was installed from github, you would use `jspm_path("components/jquery", "github")` to get the path of the jquery used by JSPM. The helper works the same way for NPM packages.
