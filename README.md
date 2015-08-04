@@ -39,7 +39,7 @@ After you have installed node, run:
 
 ```
 npm install jspm
-middleman jspm init
+middleman jspm install
 ```
 
 JSPM will ask if you want it to configure `config.js`. Say yes.
