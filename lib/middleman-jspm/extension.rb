@@ -76,14 +76,12 @@ module Middleman
 			end
 	
 			def jspm_include_module(name)
-				modules = jspm_get_modules()
-		
-				m = modules.find_index{|m| m["name"] == name }
-		
-				return if m.nil?
-		
 				if build?
-					if modules[m]["self-executing"]
+					modules = jspm_get_modules()
+		
+					m = modules.find_index{|m| m["name"] == name }
+		
+					if not m.nil? and modules[m]["self-executing"]
 						"<script src=\"#{asset_path(:js, name)}\"></script>"
 					else
 						"<script>System.import('#{name}');</script>"
