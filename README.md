@@ -75,7 +75,7 @@ You can use `middleman jspm` to run JSPM commands, install packages, and build b
 
 ## Building JSPM Pages
 
-This is a minimal working example, that includes the module in `main.js` and all of it's dependencies:
+This is a minimal working example, that includes the module in `main.js` and all of its dependencies:
 
 ```erb
 <!doctype html>
